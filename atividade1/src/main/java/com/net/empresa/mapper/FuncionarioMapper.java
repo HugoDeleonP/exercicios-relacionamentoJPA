@@ -3,7 +3,9 @@ package com.net.empresa.mapper;
 import com.net.empresa.dto.funcionario.FuncionarioDTORequest;
 import com.net.empresa.dto.funcionario.FuncionarioDTOResponse;
 import com.net.empresa.model.Funcionario;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FuncionarioMapper {
 
     public Funcionario toEntity(FuncionarioDTORequest funcionarioDTORequest){

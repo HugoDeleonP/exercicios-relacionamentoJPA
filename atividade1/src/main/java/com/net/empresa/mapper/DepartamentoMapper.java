@@ -21,17 +21,20 @@ public class DepartamentoMapper {
     }
 
     public DepartamentoDTOResponse toResponse(Departamento departamento){
-        List<Funcionario> funcionarios = departamento.getFuncionarios();
 
-        List<DepartamentoDTOListFuncionario> funcionariosDto = funcionarios.stream()
-                .map(funcionario -> new DepartamentoDTOListFuncionario(funcionario.getNome(), funcionario.getDataNascimento()))
-                .toList();
+        List<DepartamentoDTOListFuncionario> funcionarios = new ArrayList<>();
+
+        if(departamento.getFuncionarios() != null){
+            funcionarios = departamento.getFuncionarios().stream()
+                    .map(funcionario -> new DepartamentoDTOListFuncionario(funcionario.getNome(), funcionario.getDataNascimento()))
+                    .toList();
+        }
 
         return new DepartamentoDTOResponse(
                 departamento.getId(),
                 departamento.getNome(),
                 departamento.getPiso(),
-                funcionariosDto
+                funcionarios
         );
     }
 }
