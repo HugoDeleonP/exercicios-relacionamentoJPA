@@ -3,24 +3,17 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for atividade1" enabled="true">
+      <profile name="Annotation profile for atividade3" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath>
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
+        <module name="atividade3" />
         <module name="atividade1" />
-        <module name="empresa (1)" />
-      </profile>
-      <profile name="Annotation profile for atividade2" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath>
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
         <module name="atividade2" />
+        <module name="empresa (1)" />
       </profile>
     </annotationProcessing>
   </component>
@@ -28,6 +21,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="atividade1" options="-parameters" />
       <module name="atividade2" options="-parameters" />
+      <module name="atividade3" options="-parameters" />
       <module name="empresa (1)" options="-parameters" />
     </option>
   </component>
