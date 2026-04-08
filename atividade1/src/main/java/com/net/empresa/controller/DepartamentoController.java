@@ -7,6 +7,7 @@ import com.net.empresa.service.DepartamentoService;
 import com.net.empresa.service.FuncionarioService;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,22 +23,26 @@ public class DepartamentoController {
 
     @PostMapping
     public ResponseEntity<DepartamentoDTOResponse> save( @RequestBody DepartamentoDTORequest departamentoDTORequest){
-        return ResponseEntity.ok(departamentoService.save(departamentoDTORequest));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(departamentoService.save(departamentoDTORequest));
     }
 
     @GetMapping
     public ResponseEntity<List<DepartamentoDTOResponse>> findAll(){
-        return ResponseEntity.ok(departamentoService.findAll());
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(departamentoService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<DepartamentoDTOResponse> findById(@PathVariable Long id){
-        return ResponseEntity.ok(departamentoService.findById(id));
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(departamentoService.findById(id));
     }
 
     @GetMapping("{departamentoId}/funcionarios")
     public ResponseEntity<List<FuncionarioDTOResponse>> findByDepartamento(@PathVariable Long departamentoId){
-        return ResponseEntity.ok(funcionarioService.findByDepartamento(departamentoId));
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(funcionarioService.findByDepartamento(departamentoId));
     }
 
 }

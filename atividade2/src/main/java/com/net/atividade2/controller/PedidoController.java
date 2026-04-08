@@ -7,6 +7,7 @@ import com.net.atividade2.model.Pedido;
 import com.net.atividade2.service.ClienteService;
 import com.net.atividade2.service.PedidoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,26 +22,31 @@ public class PedidoController {
 
     @PostMapping
     public ResponseEntity<PedidoDTOResponse> save(@RequestBody PedidoDTORequest pedidoDTORequest){
-        return ResponseEntity.ok(pedidoService.save(pedidoDTORequest));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(pedidoService.save(pedidoDTORequest));
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<PedidoDTOResponse>> findAll(){
-        return ResponseEntity.ok(pedidoService.findAll());
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(pedidoService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PedidoDTOResponse> findById(@PathVariable Long id){
-        return ResponseEntity.ok(pedidoService.findById(id));
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(pedidoService.findById(id));
     }
 
     @GetMapping("/search")
     public ResponseEntity<PedidoDTOResponse> findByIdAndDescricao(@RequestParam Long id, @RequestParam String descricao){
-        return ResponseEntity.ok(pedidoService.findByIdAndDescricao(id, descricao));
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(pedidoService.findByIdAndDescricao(id, descricao));
     }
 
     @GetMapping
     public ResponseEntity<PedidoDTOResponse> findByClienteNome(@RequestParam String clienteNome){
-        return ResponseEntity.ok(pedidoService.findByClienteNome(clienteNome));
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(pedidoService.findByClienteNome(clienteNome));
     }
 }
