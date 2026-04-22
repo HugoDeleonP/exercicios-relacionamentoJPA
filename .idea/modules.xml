@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/atividade1/atividade1.iml" filepath="$PROJECT_DIR$/atividade1/atividade1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/atividade2/atividade2.iml" filepath="$PROJECT_DIR$/atividade2/atividade2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/atividade4/atividade4.iml" filepath="$PROJECT_DIR$/atividade4/atividade4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/atividade5/atividade5.iml" filepath="$PROJECT_DIR$/atividade5/atividade5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/onetomany-manytoone/atividade4/atividade4.iml" filepath="$PROJECT_DIR$/onetomany-manytoone/atividade4/atividade4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/onetomany-manytoone/atividade5/atividade5.iml" filepath="$PROJECT_DIR$/onetomany-manytoone/atividade5/atividade5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercicios.iml" filepath="$PROJECT_DIR$/exercicios.iml" />
     </modules>
   </component>
 </project>
