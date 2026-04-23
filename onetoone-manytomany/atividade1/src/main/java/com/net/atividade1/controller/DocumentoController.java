@@ -7,11 +7,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/api/documentos")
+@RestController
+@RequestMapping("/api/documentos")
 @RequiredArgsConstructor
 public class DocumentoController {
 
     private final DocumentoService documentoService;
+
     @PostMapping
     public ResponseEntity<DocumentoDTOResponse> save(@RequestBody DocumentoDTORequest documentoDTORequest){
         return ResponseEntity.status(200).body(documentoService.save(documentoDTORequest));

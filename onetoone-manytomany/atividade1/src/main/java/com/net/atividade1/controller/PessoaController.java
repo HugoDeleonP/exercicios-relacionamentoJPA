@@ -12,7 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-@RestController("/api/pessoas")
+@RestController
+@RequestMapping("/api/pessoas")
 public class PessoaController {
 
     private final PessoaService pessoaService;
