@@ -28,6 +28,12 @@ public class DocumentoService {
 
     public DocumentoDTOResponse save(DocumentoDTORequest request){
 
+        Boolean existsDocumento = documentoRepository.existsByNumeroAndTipo(request.numero(), request.tipo());
+
+        if(existsDocumento){
+            throw new RuntimeException("Documento já existente");
+        }
+
         Documento documentoDatabase = documentoRepository.save(documentoMapper.toEntity(request));
 
         return documentoMapper.toResponse(documentoDatabase);

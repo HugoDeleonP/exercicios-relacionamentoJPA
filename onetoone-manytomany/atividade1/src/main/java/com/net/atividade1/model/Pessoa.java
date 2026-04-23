@@ -22,7 +22,7 @@ public class Pessoa {
     private String nome;
 
     @OneToOne(orphanRemoval = true, cascade = CascadeType.ALL)
-    @JoinColumn(name = "documento_id")
+    @JoinColumn(name = "documento_id", unique = true)
     private Documento documento;
 
     public Pessoa(String nome) {

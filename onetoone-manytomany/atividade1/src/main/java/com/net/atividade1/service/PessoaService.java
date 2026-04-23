@@ -43,15 +43,11 @@ public class PessoaService {
 
     public PessoaDTOResponse save(PessoaDocumentoDTORequest request){
 
-        Boolean existsDocumento = documentoRepository.existsByNumeroAndTipo(request.documento().numero(), request.documento().numero());
+        Documento documentoBuscado = documentoRepository.findByNumeroAndTipo(request.documento().numero(), request.documento().tipo())
+                .orElseThrow(()-> new RuntimeException("Documento não encontrado"));
 
-        if(existsDocumento){
-            throw new RuntimeException("O documento já existe!");
-        }
-
-        Documento documento = documentoMapper.toEntity(request.documento());
         Pessoa pessoa = pessoaMapper.toEntity(request);
-        pessoa.setDocumento(documento);
+        pessoa.setDocumento(documentoBuscado);
 
         Pessoa pessoaDatabase = pessoaRepository.save(pessoa);
 
