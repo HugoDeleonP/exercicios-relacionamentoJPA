@@ -9,7 +9,10 @@ import org.springframework.stereotype.Component;
 public class MusicaMapper {
 
     public Musica toEntity(MusicaDTORequest request){
-        return new Musica();
+        return new Musica(
+                request.nome(),
+                request.artista()
+        );
     }
 
     public MusicaDTOResponse toResponse(Musica musica){
